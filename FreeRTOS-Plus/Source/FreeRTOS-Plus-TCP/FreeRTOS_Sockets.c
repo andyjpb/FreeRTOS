@@ -78,8 +78,12 @@ range 1024-65535" excluding those already in use (inbound or outbound). */
 /* A block time of 0 simply means "don't block". */
 #define socketDONT_BLOCK				( ( TickType_t ) 0 )
 
+/*
+ * The value to use for initialisation is specified in FreeRTOS_IP.c This value
+ * is the longest time that will be allowed between checks.
+ */
 #if( ( ipconfigUSE_TCP == 1 ) && !defined( ipTCP_TIMER_PERIOD_MS ) )
-	#define ipTCP_TIMER_PERIOD_MS	( 1000U )
+	#define ipTCP_TIMER_PERIOD_MS	( 60000U )
 #endif
 
 /* Some helper macro's for defining the 20/80 % limits of uxLittleSpace / uxEnoughSpace. */
